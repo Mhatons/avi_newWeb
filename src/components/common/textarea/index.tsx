@@ -1,10 +1,14 @@
+import { RequiredIcon } from "../../../assets/svg"
 import { ITestAreaProps } from "../../../types"
 
 export default function TextArea(props: ITestAreaProps) {
     const { label, onChange, name, placeholder, required, value } = props
     return (
         <div>
-            <label htmlFor="message" className="block text-gray-700">{label}</label>
+            <label htmlFor="message" className=" text-gray-700 flex items-center gap-1">
+                {label}
+                {required && <RequiredIcon />}
+            </label>
             <textarea
                 name={name}
                 value={value}

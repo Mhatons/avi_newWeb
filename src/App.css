@@ -22,3 +22,7 @@
   .backgroundColor {
     background-image: linear-gradient(to right, #0d1935cf, #000000b7, #00000049, #000000b7, #000000cf);
   }
+
+  .scrollBarHidden::-webkit-scrollbar {
+    display: none;
+  }

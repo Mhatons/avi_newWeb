@@ -14,6 +14,7 @@ export interface IInputProps {
     placeholder?: string
     required?: boolean
     value: string | number; 
+    classNames?: string
 }
 
 export interface ITestAreaProps {
