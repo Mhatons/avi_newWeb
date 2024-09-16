@@ -1,16 +1,26 @@
+import { useNavigate } from "react-router-dom";
 import { logoImg } from "../../../assets/images";
 import Input from "../../common/input";
 
-interface NavBarProps {
-    setContactForm: (value: boolean) => void;
-}
-
-export default function NavBar({ setContactForm }: NavBarProps) {
+export default function NavBar() {
+    const navigate = useNavigate()
     const menu = [
-        'home',
-        'about',
-        'contact',
-        'services',
+        {
+            menu: 'home',
+            action: () => navigate('/home')
+        },
+        {
+            menu: 'about',
+            action: () => navigate('/about'),
+        },
+        {
+            menu: 'contact',
+            action: () => navigate('/contact'),
+        },
+        {
+            menu: 'services',
+            action: () => navigate('/services'),
+        },
     ]
     return (
         <nav className="h-16 fixed z-20 w-full bg-white flex items-center justify-between px-7">
@@ -20,8 +30,8 @@ export default function NavBar({ setContactForm }: NavBarProps) {
             <ul className=" flex items-center justify-between gap-3">
                 {
                     menu?.map((menu, index) => (
-                        <li onClick={() => setContactForm(true)} key={index} className=" cursor-pointer hover:italic">
-                            {menu}
+                        <li onClick={menu.action} key={index} className=" cursor-pointer hover:font-semibold">
+                            {menu.menu}
                         </li>
                     ))
                 }

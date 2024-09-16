@@ -12,3 +12,13 @@
   .flip {
     animation: flip 5s infinite;
   }
+
+  .backgroundImage {
+    background-image: url(./assets/images/bg_sample.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .backgroundColor {
+    background-image: linear-gradient(to right, #0d1935cf, #000000b7, #00000049, #000000b7, #000000cf);
+  }

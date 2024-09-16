@@ -5,9 +5,11 @@ import { routes } from './constants/routes'
 function App() {
 
   return (
-    <div className="bg-zinc-100 min-h-screen">
-      <RouterProvider router={routes()}>
-      </RouterProvider>
+    <div className="backgroundImage bg-zinc-100 overflow-y-scroll h-screen">
+      <div className='backgroundColor overflow-y-scroll h-screen'>
+        <RouterProvider router={routes()}>
+        </RouterProvider>
+      </div>
     </div>
   )
 }

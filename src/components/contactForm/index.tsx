@@ -4,13 +4,12 @@ import Button from '../common/button';
 import Input from '../common/input';
 import TextArea from '../common/textarea';
 import emailjs from 'emailjs-com';
-import { CloseIcon } from '../../assets/svg';
+import { CheckIcon, CloseIcon, Spinner } from '../../assets/svg';
 
-interface ContactFormProps {
-    setContactForm: (value: boolean) => void;
-}
-
-export default function ContactForm({ setContactForm }: ContactFormProps) {
+export default function ContactForm() {
+    const [promt, setPromt] = useState<boolean | null>(false)
+    const [isLoading, setIsLoading] = useState<boolean | null>(false)
+    const [err, setErr] = useState<string | null>("")
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -29,6 +28,7 @@ export default function ContactForm({ setContactForm }: ContactFormProps) {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setIsLoading(true)
 
         const emailPayload = {
             from_name: formData.name,
@@ -44,7 +44,8 @@ export default function ContactForm({ setContactForm }: ContactFormProps) {
             'yUx6glCLOOWwArpF0'
         ).then((response) => {
             console.log("email successfully sent", response.status, response.text);
-            setContactForm(false)
+            setPromt(true);
+            setIsLoading(false);
 
             // Send automated response back to the user
             const autoReplyEmailPayload = {
@@ -61,23 +62,31 @@ export default function ContactForm({ setContactForm }: ContactFormProps) {
             )
                 .then((response) => {
                     console.log('Auto-reply sent successfully!', response.status, response.text);
+                    setFormData({
+                        name: '',
+                        email: '',
+                        phone: '',
+                        subject: '',
+                        message: '',
+                    });
                 })
                 .catch((error) => {
                     console.error('Failed to send auto-reply:', error);
+                    setErr(error)
                 });
         }).catch((error) => {
             console.error('Failed to send email:', error);
+            setErr(error)
         });
-        console.log('Form Data:', formData);
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen">
+        <div className="flex items-center justify-center min-h-screen relative">
             <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg relative">
                 <h2 className="text-2xl font-bold mb-6 text-primary_color">Contact Us</h2>
-                <div onClick={() => setContactForm(false)} className='absolute top-8 right-6 cursor-pointer'>
+                {/* <div onClick={() => setContactForm(false)} className='absolute top-8 right-6 cursor-pointer'>
                     <CloseIcon />
-                </div>
+                </div> */}
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <Input
                         label="Name"
@@ -116,9 +125,30 @@ export default function ContactForm({ setContactForm }: ContactFormProps) {
                     />
                     <Button
                         onClick={() => { }}
-                        buttonText='send message' />
+                        buttonText={isLoading ? <Spinner /> : "send message"}
+                    />
+                    <span className=' text-center w-full text-red-500'>{err}</span>
                 </form>
             </div>
+            {
+                promt && (
+                    <div className='fixed w-full top-0 bottom-0 left-0 right-0 flex items-center justify-center bg-[#000000a8]'>
+                        <div className='bg-white w-96 rounded-2xl relative flex items-center justify-center pb-8 pt-10 px-4'>
+                            <div className='flex items-start gap-3'>
+                                <div>
+                                    <CheckIcon />
+                                </div>
+                                <div className=' font-serif text-right text-[18px] text-primary_color font-semibold'>
+                                    Your message has been sent successfully! do expect a quick feedback from us
+                                </div>
+                            </div>
+                            <div onClick={() => setPromt(false)} className='absolute top-3 right-3 cursor-pointer'>
+                                <CloseIcon />
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
         </div>
     );
 }

@@ -1,5 +1,7 @@
+import { ReactNode } from "react";
+
 export interface IButtonProps {
-    buttonText: string;
+    buttonText: string | ReactNode;
     onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
     classNames?: string;
 }

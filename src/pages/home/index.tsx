@@ -1,18 +1,16 @@
-import { useState } from "react";
-import ContactForm from "../../components/contactForm";
 import NavBar from "../../components/layout/nav";
 
 export default function Home() {
 
-    const [showContactForm, setShowContactForm] = useState<boolean | null>(false);
-
     return (
         <div>
-            <NavBar setContactForm={setShowContactForm} />
+            <NavBar />
             <div className="pt-24">
-                {
-                    showContactForm && <ContactForm setContactForm={setShowContactForm} />
-                }
+                <div className="text-[60px] text-white font-serif flex items-center justify-center w-[60%] m-auto text-center pt-24 ">
+                    <div className="bg-[#000000a8] py-2">
+                        welcome to radiant solutions
+                    </div>
+                </div>
             </div>
         </div>
     )
