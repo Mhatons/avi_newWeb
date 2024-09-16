@@ -37,12 +37,11 @@ export default function NavBar() {
             </div>
             <ul className=" max-sm:hidden flex items-center justify-between gap-6">
                 {menu?.map((menuItem, index) => (
-                    <li 
-                        onClick={menuItem.action} 
+                    <li
+                        onClick={menuItem.action}
                         key={index}
-                        className={`capitalize text-primary_color cursor-pointer border-b-2 hover:border-zinc-300 ${
-                            location.pathname === menuItem.path ? 'border-primary_color' : 'border-transparent'
-                        }`}
+                        className={`capitalize text-primary_color cursor-pointer border-b-2 hover:border-zinc-300 ${location.pathname === menuItem.path ? 'border-primary_color' : 'border-transparent'
+                            }`}
                     >
                         {menuItem.menu}
                     </li>
@@ -56,10 +55,12 @@ export default function NavBar() {
                     placeholder="search"
                     required
                     value={''}
-                    onChange={() => {}}
+                    onChange={() => { }}
                 />
             </div>
-            <Hamburger />
+            <div className="sm:hidden">
+                <Hamburger />
+            </div>
         </nav>
     );
 }
