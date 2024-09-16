@@ -53,7 +53,7 @@ export default function NavBar() {
                     name="search"
                     type="text"
                     placeholder="search"
-                    required
+                    classNames={"m-auto"}
                     value={''}
                     onChange={() => { }}
                 />

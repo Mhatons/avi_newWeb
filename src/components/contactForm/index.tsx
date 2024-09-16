@@ -11,11 +11,13 @@ export default function ContactForm() {
     const [isLoading, setIsLoading] = useState<boolean | null>(false)
     const [err, setErr] = useState<string | null>("")
     const [formData, setFormData] = useState({
-        name: '',
+        firstName: '',
+        lastName: '',
         email: '',
         phone: '',
-        subject: '',
+        address: '',
         message: '',
+        product: '',
     });
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -31,10 +33,12 @@ export default function ContactForm() {
         setIsLoading(true)
 
         const emailPayload = {
-            from_name: formData.name,
+            from_name: `${formData.firstName} ${formData.lastName}`,
             from_email: formData.email,
             phone: formData.phone,
             message: formData.message,
+            address: formData.address,
+            product: formData.product
         };
         // initial email sending to the admin
         emailjs.send(
@@ -49,7 +53,7 @@ export default function ContactForm() {
 
             // Send automated response back to the user
             const autoReplyEmailPayload = {
-                to_name: formData.name,
+                to_name: `${formData.firstName} ${formData.lastName}`,
                 to_email: formData.email,
                 message: "Thank you for contacting us! We have received your message and will get back to you soon."
             };
@@ -63,10 +67,12 @@ export default function ContactForm() {
                 .then((response) => {
                     console.log('Auto-reply sent successfully!', response.status, response.text);
                     setFormData({
-                        name: '',
+                        firstName: '',
+                        lastName: '',
                         email: '',
                         phone: '',
-                        subject: '',
+                        product: '',
+                        address: '',
                         message: '',
                     });
                 })
@@ -81,37 +87,64 @@ export default function ContactForm() {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen relative">
-            <div className="bg-light_color p-8 pt-24 max-sm:h-screen sm:rounded-lg shadow-lg w-full max-w-lg relative">
+        <div className="flex items-center justify-center min-h-screen sm:w-[80%] m-auto relative">
+            <div className="bg-light_color p-8 max-sm:pt-24  sm:rounded-lg shadow-lg w-full relative">
                 <h2 className="text-2xl font-bold mb-6 text-primary_color">Contact Us</h2>
                 <form onSubmit={handleSubmit} className="space-y-4">
-                    <Input
-                        label="Name"
-                        name="name"
-                        type="text"
-                        placeholder="Enter your name"
-                        required
-                        value={formData.name} // Pass value here
-                        onChange={handleChange}
-                    />
-                    <Input
-                        label="Email"
-                        name="email"
-                        type="email"
-                        placeholder="Enter your email"
-                        required
-                        value={formData.email} // Pass value here
-                        onChange={handleChange}
-                    />
-                    <Input
-                        label="Phone"
-                        name="phone"
-                        type="number"
-                        placeholder="Enter your mobile no."
-                        required
-                        value={formData.phone} // Pass value here
-                        onChange={handleChange}
-                    />
+                    <div className=' sm:grid grid-cols-2 gap-x-6 '>
+                        <Input
+                            label="First name"
+                            name="firstName"
+                            type="text"
+                            placeholder="Enter your first name"
+                            required
+                            value={formData.firstName} // Pass value here
+                            onChange={handleChange}
+                        />
+                        <Input
+                            label="Last name"
+                            name="lastName"
+                            type="text"
+                            placeholder="Enter your last name"
+                            required
+                            value={formData.lastName} // Pass value here
+                            onChange={handleChange}
+                        />
+                        <Input
+                            label="Contact number"
+                            name="phone"
+                            type="number"
+                            placeholder="Enter your contact number"
+                            required
+                            value={formData.phone} // Pass value here
+                            onChange={handleChange}
+                        />
+                        <Input
+                            label="Product"
+                            name="product"
+                            type="text"
+                            placeholder="Enter your product"
+                            value={formData.product} // Pass value here
+                            onChange={handleChange}
+                        />
+                        <Input
+                            label="Email"
+                            name="email"
+                            type="email"
+                            placeholder="Enter your email"
+                            required
+                            value={formData.email} // Pass value here
+                            onChange={handleChange}
+                        />
+                        <Input
+                            label="Address"
+                            name="address"
+                            type="text"
+                            placeholder="Enter address"
+                            value={formData.address} // Pass value here
+                            onChange={handleChange}
+                        />
+                    </div>
                     <TextArea
                         name="message"
                         value={formData.message}

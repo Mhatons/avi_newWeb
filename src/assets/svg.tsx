@@ -44,3 +44,9 @@ export const HamBurger = () => (
     <rect x="3" y="16" width="18" height="2" fill="black" />
   </svg>
 )
+
+export const RequiredIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="7" height="7" fill="red">
+    <path d="M25 2c1.1 0 2 .9 2 2v16.5l13.3-7.7c1-.6 2.3-.2 2.9.9s.2 2.3-.9 2.9L29 25l13.3 7.7c1 .6 1.4 1.9.9 2.9-.6 1-1.9 1.4-2.9.9L27 31.5V48c0 1.1-.9 2-2 2s-2-.9-2-2V31.5l-13.3 7.7c-1 .6-2.3.2-2.9-.9-.6-1-.2-2.3.9-2.9L21 25l-13.3-7.7c-1-.6-1.4-1.9-.9-2.9s1.9-1.4 2.9-.9L23 20.5V4c0-1.1.9-2 2-2z" />
+  </svg>
+)
