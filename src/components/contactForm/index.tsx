@@ -82,11 +82,8 @@ export default function ContactForm() {
 
     return (
         <div className="flex items-center justify-center min-h-screen relative">
-            <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg relative">
+            <div className="bg-light_color p-8 pt-24 max-sm:h-screen sm:rounded-lg shadow-lg w-full max-w-lg relative">
                 <h2 className="text-2xl font-bold mb-6 text-primary_color">Contact Us</h2>
-                {/* <div onClick={() => setContactForm(false)} className='absolute top-8 right-6 cursor-pointer'>
-                    <CloseIcon />
-                </div> */}
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <Input
                         label="Name"
