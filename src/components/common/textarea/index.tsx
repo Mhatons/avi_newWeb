@@ -9,7 +9,7 @@ export default function TextArea(props: ITestAreaProps) {
                 name={name}
                 value={value}
                 onChange={onChange}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary_color"
+                className="w-full p-3 border border-gray-300 bg-light_color rounded-lg focus:outline-none focus:ring-2 focus:ring-primary_color"
                 placeholder={placeholder}
                 rows={4}
                 required={required}

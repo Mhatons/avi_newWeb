@@ -15,8 +15,10 @@ export default function Welcome() {
     }, [navigate]);
 
     return (
-        <div className=' m-auto flex items-center w-[40%] justify-center h-screen '>
-            <img src={logoImg} alt="" className=' object-cover flip' />
+        <div className='bg-light_color'>
+            <div className=' m-auto flex items-center w-[40%] justify-center h-screen '>
+                <img src={logoImg} alt="" className=' object-cover flip' />
+            </div>
         </div>
     )
 }

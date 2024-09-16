@@ -6,7 +6,7 @@ export default function Contact() {
     return (
         <div>
             <NavBar />
-            <div className="pt-24 pb-8">
+            <div className="sm:pt-24 sm:pb-8">
                 <ContactForm />
             </div>
         </div>

@@ -10,7 +10,7 @@ export default function Input(props: IInputProps) {
                 name={name}
                 value={value}
                 onChange={onChange}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary_color"
+                className="w-full p-3 border border-gray-300 rounded-lg bg-[#F4F4F5] focus:outline-none focus:ring-2 focus:ring-primary_color"
                 placeholder={placeholder}
                 required={required}
             />
