@@ -2,10 +2,14 @@
 export default {
   content: [
     './index.html',
-    './src/**/*.{js,jsx,ts,tsx}', // This path should point to all your template files
+    './src/**/*.{js,jsx,ts,tsx}', // This path should point to all your template files 
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary_color: '#16335B'
+      }
+    },
   },
   plugins: [],
 }

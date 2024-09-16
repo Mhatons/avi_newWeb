@@ -1,12 +1,15 @@
+import { RouterProvider } from 'react-router-dom'
 import './App.css'
+import { routes } from './constants/routes'
 
 function App() {
 
   return (
-    <div className="bg-[#ddd] py-4 text-center">
-      <h1 className="text-2xl font-bold capitalize">
-        this is a vite/react template with typescript and tailwind css integrations
-      </h1>
+    <div className="backgroundImage bg-zinc-100 overflow-y-scroll h-screen">
+      <div className='backgroundColor overflow-y-scroll h-screen'>
+        <RouterProvider router={routes()}>
+        </RouterProvider>
+      </div>
     </div>
   )
 }

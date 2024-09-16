@@ -1,0 +1,24 @@
+/* Define the keyframes for the flip animation */
+@keyframes flip {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
+  }
+  
+  /* Apply the flip animation */
+  .flip {
+    animation: flip 5s infinite;
+  }
+
+  .backgroundImage {
+    background-image: url(./assets/images/bg_sample.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .backgroundColor {
+    background-image: linear-gradient(to right, #0d1935cf, #000000b7, #00000049, #000000b7, #000000cf);
+  }
