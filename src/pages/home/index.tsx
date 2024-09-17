@@ -75,7 +75,7 @@ export default function Home() {
             <NavBar />
             <div className="pt-24 pb-10">
                 <div className="sm:text-[40px] text-[20px] text-white font-serif flex items-center justify-center w-full m-auto text-center ">
-                    <div className="bg-[#111781a8] sm:py-2 max-sm:p-2  w-full">
+                    <div className=" sm:border border-light_color max-sm:bg-primary_color text-light_color sm:py-0 max-sm:p-2 sm:w-[50%] w-full capitalize ">
                         welcome to radiant solutions
                     </div>
                 </div>

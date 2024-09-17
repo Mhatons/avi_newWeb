@@ -26,3 +26,11 @@
   .scrollBarHidden::-webkit-scrollbar {
     display: none;
   }
+
+  .clip-v-shape {
+    position: relative;
+    padding: 10px 20px;
+    background-color: #f3f3f3; /* Your light color */
+    color: #FF5626; /* Your primary color */
+    clip-path: polygon(0 0, 10% 50%, 0 100%, 100% 100%, 90% 50%, 100% 0);
+  }
