@@ -10,10 +10,10 @@ export interface IInputProps {
     label: string,
     name: string,
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-    type: 'text' | 'number' | 'email' | 'password' | 'checkbox' | 'radio'; 
+    type: 'text' | 'number' | 'email' | 'password' | 'checkbox' | 'radio';
     placeholder?: string
     required?: boolean
-    value: string | number; 
+    value: string | number;
     classNames?: string
 }
 
@@ -23,5 +23,20 @@ export interface ITestAreaProps {
     onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
     placeholder?: string
     required?: boolean
-    value: string | number; 
+    value: string | number;
+}
+
+export interface IImage {
+    url: string;
+    alt?: string;
+}
+
+// card
+export interface ICard {
+    title: string,
+    description?: string,
+    image: IImage,
+    buttonText: string,
+    isClickable?: boolean,
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
