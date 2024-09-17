@@ -5,7 +5,7 @@ export default function Card(props: ICard) {
 
     return (
         <div className=" w-full text-white font-serif flex items-center justify-center m-auto text-center ">
-            <div className={`bg-[#000000a8] p-3 pb-6 h-[55vh] w-full rounded-xl`}>
+            <div className={`bg-[#000000a8] p-3 pb-6 h-[55vh] border sm:border-primary_color border-zinc-100 w-full rounded-xl`}>
                 <div className="relative h-[85%] group">
                     <img src={image.url} alt={image.alt || ""} className="w-full h-full object-cover  rounded-xl" />
                     <div className="bg-[#00000086] top-0 right-0 bottom-0 left-0 sm:hidden group-hover:flex flex items-center justify-center absolute sm:py-2 max-sm:p-8 rounded-xl">
