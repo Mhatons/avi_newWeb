@@ -2,6 +2,12 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { CloseIcon, HamBurger } from '../../assets/svg';
 import { useState } from 'react';
+import { logoImg } from '../../assets/images';
+import { IoIosArrowForward } from 'react-icons/io';
+import { BsHouseFill } from 'react-icons/bs';
+import { GrServices } from 'react-icons/gr';
+import { FaPhoneVolume } from 'react-icons/fa';
+import { GiFamilyHouse } from 'react-icons/gi';
 
 // initTE({ Offcanvas, Ripple, Dropdown });
 
@@ -14,22 +20,26 @@ export default function Hamburger() {
         {
             menu: 'home',
             path: '/home',
-            action: () => navigate('/home')
+            action: () => navigate('/home'),
+            icon: <BsHouseFill />
         },
         {
             menu: 'about',
             path: '/about',
             action: () => navigate('/about'),
+            icon: <GiFamilyHouse />
         },
         {
             menu: 'contact',
             path: '/contact',
             action: () => navigate('/contact'),
+            icon: <FaPhoneVolume />
         },
         {
             menu: 'services',
             path: '/services',
             action: () => navigate('/services'),
+            icon: <GrServices />
         },
     ];
     return (
@@ -44,16 +54,23 @@ export default function Hamburger() {
                     id="offcanvasExample"
                     aria-labelledby="offcanvasExampleLabel"
                     data-te-offcanvas-init>
-                    <div className=' w-[90%] m-auto pt-16 relative'>
-                        <ul className=" space-y-8">
+                    <div className=' w-[90%] m-auto relative'>
+                        <div className=" w-48 h-14 mt-5">
+                            <img src={logoImg} onClick={() => navigate('/home')} alt="" className="w-full h-full cursor-pointer" />
+                        </div>
+                        <ul className=" space-y-8 pt-10 ">
                             {menu?.map((menuItem, index) => (
                                 <li
                                     onClick={menuItem.action}
                                     key={index}
-                                    className={`capitalize text-primary_color font-semibold pb-3 cursor-pointer border-b-2 hover:border-zinc-300 ${location.pathname === menuItem.path ? 'border-primary_color' : 'border-transparent'
+                                    className={`capitalize text-primary_color flex items-center justify-between text-[20px] font-semibold pb-3 cursor-pointer border-b-2 hover:border-zinc-300 ${location.pathname === menuItem.path ? 'border-primary_color' : 'border-transparent'
                                         }`}
                                 >
-                                    {menuItem.menu}
+                                    <div className='flex items-center gap-3'>
+                                        {menuItem.icon}
+                                        {menuItem.menu}
+                                    </div>
+                                    <IoIosArrowForward />
                                 </li>
                             ))}
                         </ul>
