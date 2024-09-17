@@ -29,8 +29,8 @@ export default function Services() {
             <NavBar />
             <div className="pt-24 pb-10">
                 <div className="sm:text-[40px] text-[22px] text-white font-serif flex items-center justify-center w-full m-auto text-center ">
-                    <div className="sm:border border-light_color max-sm:bg-primary_color text-light_color sm:py-0 max-sm:p-2  sm:w-[40%] w-full capitalize">
-                        Our Services
+                    <div className=" text-white w-full font-bold uppercase">
+                        <b className="text-[#ff9d2c]">Our</b> Services
                     </div>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-x-10 sm:w-[90%] m-auto pt-10">
