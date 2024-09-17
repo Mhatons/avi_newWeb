@@ -33,6 +33,7 @@ export default function ContactForm() {
         setIsLoading(true)
 
         const emailPayload = {
+            to_email: 'ebubeezi@gmail.com,mhatons@gmail.com',
             from_name: `${formData.firstName} ${formData.lastName}`,
             from_email: formData.email,
             phone: formData.phone,
