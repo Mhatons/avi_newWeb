@@ -49,7 +49,7 @@ export default function Hamburger() {
                     <HamBurger />
                 </div>
                 <div
-                    className={` ${!humburger && "invisible"} fixed overflow-y-scroll bottom-0 left-0 w-96 max-w-full top-0 z-[1045] flex-translate-x-full flex-col border-none bg-light_color bg-clip-padding text-neutral-700 shadow-sm outline-none transition duration-300 ease-in-out dark:bg-darkModeLight dark:text-neutral-200 [&[data-te-offcanvas-show]]:transform-none`}
+                    className={` ${!humburger && "invisible"} fixed overflow-y-scroll bottom-0 left-0 w-96 max-w-full top-0 z-[1045] flex-translate-x-full flex-col border-none bg-light_color bg-clip-padding text-neutral-700 shadow-sm outline-none transition duration-300 ease-in-out [&[data-te-offcanvas-show]]:transform-none`}
                     tabIndex={-1}
                     id="offcanvasExample"
                     aria-labelledby="offcanvasExampleLabel"
